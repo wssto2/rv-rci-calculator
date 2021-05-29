@@ -4,7 +4,7 @@
             <button class="Modal__innerOverlay"></button>
             <div class="Modal__inner" style="max-height: 584px;">
                 <div class="Modal__content">
-                    <button class="Modal__close"></button>
+                    <button class="Modal__close" @click="$emit('close')"></button>
                     <div class="Modal__innerContent">
                         <slot></slot>
                     </div>

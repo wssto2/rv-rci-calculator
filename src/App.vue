@@ -1,6 +1,6 @@
 <template>
     <div id="rciCalculator">
-        <Modal>
+        <Modal v-show="visible" @close="visible = false">
             <RciSimulator />
         </Modal>
     </div>
@@ -12,6 +12,18 @@
 
     export default {
         name: 'App',
+
+        data() {
+            return {
+                visible: false
+            }
+        },
+
+        mounted() {
+            document.querySelector('.rci-calculator-price-wrapper .rci-calculator-button').addEventListener('click', () => {
+                this.visible = true;
+            })
+        },
 
         components: {
             RciSimulator,
