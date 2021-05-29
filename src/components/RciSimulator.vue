@@ -420,6 +420,10 @@
                     .then((response) => {
                         this.loading = false;
                         this.calculationResults = response.data;
+
+                        document.querySelector('.rci-calculator-price-wrapper').style.display = 'block';
+
+                        document.querySelector('.price-calculation-price-month-installment').innerText = this.calculationResults.monthly_installment + ' ' + this.calculationResults.currency + '/mj*';
                     })
             }
         }

@@ -459,7 +459,7 @@
 .rci-renault.rci-common .rci-two-column-row > .rci-col .rci-content, .rci-renault.rci-common .ui-datepicker .ui-datepicker-header .rci-two-column-row > .ui-datepicker-title .rci-content, .rci-renault.rci-common .ui-datepicker .ui-datepicker-header .rci-two-column-row > .ui-datepicker-prev .rci-content, .rci-renault.rci-common .ui-datepicker .ui-datepicker-header .rci-two-column-row > .ui-datepicker-next .rci-content, .rci-renault.rci-common .ui-datepicker .ui-datepicker-header .rci-two-column-row > .prev .rci-content, .rci-renault.rci-common .ui-datepicker .ui-datepicker-header .rci-two-column-row > .next .rci-content { padding: 15px; }
 .rci-renault.rci-common .rci-tree-columns .rci-column { width: 33.3333%; }
 .rci-renault.rci-common .rci-tree-columns .rci-box-title { display: none; }
-.rci-renault.rci-common .rci-accordion label { font-size: 16px; font-weight: normal; text-transform: none; }
+.rci-renault.rci-common .rci-accordion label { font-size: 16px; font-weight: normal; text-transform: none; background-image: none; margin: auto; }
 .rci-renault.rci-common .rci-btn-wrapper { width: 100%; text-align: center; padding: 10px 15px; }
 .rci-renault.rci-common .rci-btn-wrapper .rci-btn-div-wrapper { display: inline-block; }
 .rci-renault.rci-common .rci-btn-wrapper .rci-btn-div-wrapper.rci-btn-div--validate .rci-btn::before { content: ""; font-family: picto-renault; font-size: 38px; color: rgb(0, 164, 5); right: 20px; }

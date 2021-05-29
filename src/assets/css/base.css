@@ -2215,7 +2215,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 }
 
 body {
-    display: flex;
+    /*display: flex;
     flex-direction: column;
     min-height: 100vh;
     font-size: 1.2rem;
@@ -2224,7 +2224,7 @@ body {
     font-family: "NouvelR, sans-serif";
     line-height: 1.45;
     direction: ltr;
-    overflow-x: hidden
+    overflow-x: hidden*/
 }
 
 ol,ul {
