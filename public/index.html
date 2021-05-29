@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="rciCalculator"></div>
+    <script>
+        window.RCI_SIMULATOR_CONFIG = {
+            country: "hr",
+            vehicle_type: 2,
+            vehicle_price: 125000,
+            vehicle_mileage: 100000,
+            vehicle_registration_date: '2019-02-01',
+            vehicle_warranty_id: 76,
+            vehicle_drivetrain_id: 53,
+            vehicle_engine_volume: 1500
+        }
+    </script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
