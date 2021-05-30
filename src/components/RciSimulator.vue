@@ -191,7 +191,9 @@
                                                                                                 <input class="rci-checkbox rci-radio-checkbox-list--ie-disabled"
                                                                                                        :id="'bundle_' + calculationResults.bundle.name"
                                                                                                        :name="'bundle_' + calculationResults.bundle.name"
-                                                                                                       type="checkbox">
+                                                                                                       type="checkbox"
+                                                                                                        :checked="calculation.bundle_selected"
+                                                                                                        @change="calculate">
                                                                                                 <label class="rci-input-list-child-label"
                                                                                                        :for="'bundle_' + calculationResults.bundle.name">
                                                                                                     <span>{{ calculationResults.bundle.name }}</span>
@@ -328,7 +330,8 @@
                 calculation: {
                     financing_type: 'credit',
                     participation: 0,
-                    duration: 0
+                    duration: 0,
+                    bundle_selected: false
                 },
                 calculationResults: {
                     financing_amount: 0,
