@@ -118,13 +118,14 @@
                                                                                 </div>
                                                                                 <div class="rci-col rci-slider-content">
                                                                                     <vue-range-slider
+                                                                                            ref="slider"
                                                                                             :tooltip="false"
                                                                                             :min="settings.participationMin"
                                                                                             :max="settings.participationMax"
                                                                                             :step="settings.participationStep"
                                                                                             v-model="calculation.participation"
                                                                                             @drag-end="calculate"
-                                                                                            style="flex: 1;" ref="slider"></vue-range-slider>
+                                                                                            style="flex: 1;"></vue-range-slider>
                                                                                 </div>
                                                                                 <div class="rci-col rci-slider-content-mobile">
                                                                                     <label class="rci-input-label rci-input-label-sr-only"
@@ -306,7 +307,7 @@
     import axios from 'axios';
     import 'vue-range-component/dist/vue-range-slider.css';
     import VueRangeSlider from 'vue-range-component';
-    import { formatNumber } from "@/utils";
+    import { formatNumber, EventBus } from "@/utils";
 
     export default {
         name: "RciSimulator",
@@ -346,6 +347,10 @@
         },
 
         created() {
+            EventBus.$on('RCI_CALCULATOR_SHOWN', () => {
+                this.$refs.slider.refresh();
+            });
+
             this.loading = true;
             this.fetchSettings()
                 .then((settings) => {

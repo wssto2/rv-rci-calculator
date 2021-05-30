@@ -7,6 +7,7 @@
 </template>
 
 <script>
+    import { EventBus } from "@/utils";
     import Modal from "@/components/Modal";
     import RciSimulator from "@/components/RciSimulator";
 
@@ -21,6 +22,7 @@
 
         mounted() {
             document.querySelector('.rci-calculator-price-wrapper .rci-calculator-button').addEventListener('click', () => {
+                EventBus.$emit('RCI_CALCULATOR_SHOWN');
                 this.visible = true;
             })
         },

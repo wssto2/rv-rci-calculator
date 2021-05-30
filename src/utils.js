@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 export function formatNumber(number, decimals, dec_point, thousands_sep) {
 
     number = number && number.toString() || '';
@@ -27,3 +29,5 @@ export function formatNumber(number, decimals, dec_point, thousands_sep) {
     }
     return s.join(dec);
 }
+
+export const EventBus = new Vue();
