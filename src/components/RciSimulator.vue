@@ -192,7 +192,7 @@
                                                                                                        :id="'bundle_' + calculationResults.bundle.name"
                                                                                                        :name="'bundle_' + calculationResults.bundle.name"
                                                                                                        type="checkbox"
-                                                                                                        :checked="calculation.bundle_selected"
+                                                                                                        v-model="calculation.bundle_selected"
                                                                                                         @change="calculate">
                                                                                                 <label class="rci-input-list-child-label"
                                                                                                        :for="'bundle_' + calculationResults.bundle.name">
