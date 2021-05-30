@@ -1,6 +1,6 @@
 <template>
     <div id="rciCalculator">
-        <Modal v-show="visible" @close="visible = false">
+        <Modal v-if="visible" @close="visible = false">
             <RciSimulator />
         </Modal>
     </div>
