@@ -114,7 +114,7 @@
                                                                             </div>
                                                                             <div class="rci-row rci-slider-wrapper">
                                                                                 <div class="rci-col rci-slider-btn-wrapper rci-slider-btn-minus">
-                                                                                    <button class="rci-btn-slider-minus rci-minus-button rci-hover rci-btn--one" type="button"></button>
+                                                                                    <button @click="downscaleParticipation" class="rci-btn-slider-minus rci-minus-button rci-hover rci-btn--one" type="button"></button>
                                                                                 </div>
                                                                                 <div class="rci-col rci-slider-content">
                                                                                     <vue-range-slider
@@ -137,7 +137,7 @@
                                                                                            type="text">
                                                                                 </div>
                                                                                 <div class="rci-col rci-slider-btn-wrapper rci-slider-btn-plus">
-                                                                                    <button class="rci-btn-slider-plus rci-plus-button rci-hover rci-btn--one" type="button"></button>
+                                                                                    <button @click="upscaleParticipation" class="rci-btn-slider-plus rci-plus-button rci-hover rci-btn--one" type="button"></button>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="rci-row rci-slider-min-max">
@@ -448,6 +448,20 @@
             changeFinancingType(type) {
                 this.calculation.financing_type = type;
                 this.calculate();
+            },
+
+            downscaleParticipation() {
+                let step = this.settings.participationStep;
+                if (this.calculation.participation - step >= this.settings.participationMin) {
+                    this.calculation.participation -= step;
+                }
+            },
+
+            upscaleParticipation() {
+                let step = this.settings.participationStep;
+                if (this.calculation.participation + step <= this.settings.participationMax) {
+                    this.calculation.participation += step;
+                }
             }
         }
     }
