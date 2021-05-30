@@ -1,6 +1,6 @@
 <template>
     <div id="rciCalculator">
-        <Modal v-show="visible" @close="visible = false">
+        <Modal v-show="visible" @close="onClose">
             <RciSimulator />
         </Modal>
     </div>
@@ -30,6 +30,13 @@
         components: {
             RciSimulator,
             Modal
+        },
+
+        methods: {
+            onClose() {
+                this.visible = false;
+                EventBus.$emit('RCI_CALCULATOR_HIDDEN');
+            }
         }
     }
 </script>

@@ -118,6 +118,7 @@
                                                                                 </div>
                                                                                 <div class="rci-col rci-slider-content">
                                                                                     <vue-range-slider
+                                                                                            v-if="showSlider"
                                                                                             ref="slider"
                                                                                             :tooltip="false"
                                                                                             :min="settings.participationMin"
@@ -319,6 +320,7 @@
         data() {
             return {
                 loading: true,
+                showSlider: false,
                 settings: {
                     participationMin: 0,
                     participationMax: 0,
@@ -348,7 +350,15 @@
 
         created() {
             EventBus.$on('RCI_CALCULATOR_SHOWN', () => {
-                this.$refs.slider.refresh();
+                this.$nextTick(() => {
+                    this.showSlider = true;
+                });
+            });
+
+            EventBus.$on('RCI_CALCULATOR_HIDDEN', () => {
+                this.$nextTick(() => {
+                    this.showSlider = false;
+                });
             });
 
             this.loading = true;
