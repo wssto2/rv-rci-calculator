@@ -454,6 +454,7 @@
                 let step = this.settings.participationStep;
                 if (this.calculation.participation - step >= this.settings.participationMin) {
                     this.calculation.participation -= step;
+                    this.calculate();
                 }
             },
 
@@ -461,6 +462,7 @@
                 let step = this.settings.participationStep;
                 if (this.calculation.participation + step <= this.settings.participationMax) {
                     this.calculation.participation += step;
+                    this.calculate();
                 }
             }
         }
