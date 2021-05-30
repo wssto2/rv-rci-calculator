@@ -422,7 +422,7 @@
                         this.calculationResults = response.data;
 
                         document.querySelector('.rci-calculator-price-wrapper').style.display = 'block';
-                        document.querySelector('.price-calculation-info-button').innerText = 'VEČ OD'
+                        document.querySelector('.price-calculation-info-button').innerText = 'VEČ OD';
                         document.querySelector('.price-calculation-price-month-installment').innerText = formatNumber(this.calculationResults.monthly_installment, 2) + ' ' + this.calculationResults.currency + '/mj*';
                     })
             }
