@@ -76,7 +76,7 @@
                                                                 <div class="rci-navigation">
                                                                     <div class="rci-nav">
                                                                         <ul class="rci-nav-ul">
-                                                                            <li @click="calculation.financing_type = 'credit'" :class="['rci-nav-li rci-nav-li--1-of-2', {'rci-nav-li-content--selected': calculation.financing_type === 'credit'}]">
+                                                                            <li @click="changeFinancingType('credit')" :class="['rci-nav-li rci-nav-li--1-of-2', {'rci-nav-li-content--selected': calculation.financing_type === 'credit'}]">
                                                                                 <div class="rci-nav-li-content">
                                                                                     <div class="rci-nav-li-content-title">
                                                                                         Kredita
@@ -87,7 +87,7 @@
                                                                                     <div class="rci-nav-li-content-subtitle"></div>
                                                                                 </div>
                                                                             </li>
-                                                                            <li @click="calculation.financing_type = 'leasing'" :class="['rci-nav-li rci-nav-li--1-of-2', {'rci-nav-li-content--selected': calculation.financing_type === 'leasing'}]">
+                                                                            <li @click="changeFinancingType('leasing')" :class="['rci-nav-li rci-nav-li--1-of-2', {'rci-nav-li-content--selected': calculation.financing_type === 'leasing'}]">
                                                                                 <div class="rci-nav-li-content">
                                                                                     <div class="rci-nav-li-content-title">
                                                                                         Leasing
@@ -428,6 +428,11 @@
                         document.querySelector('.price-calculation-info-button').innerText = 'VEČ OD';
                         document.querySelector('.price-calculation-price-month-installment').innerText = formatNumber(this.calculationResults.monthly_installment, 2) + ' ' + this.calculationResults.currency + '/mj*';
                     })
+            },
+
+            changeFinancingType(type) {
+                this.calculation.financing_type = type;
+                this.calculate();
             }
         }
     }
