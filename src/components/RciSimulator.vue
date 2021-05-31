@@ -280,7 +280,7 @@
                                                             <div class="rci-col rci-summary-label rci-summary-label--one rci-summary-label--no-info rci-summary-label--no-value">
                                                                 <div class="rci-row">
                                                                     <div class="rci-col rci-summary-label-title rci-infohint-parent">
-                                                                        <span>*Reprezentativni primjer uz fiksnu kamatnu stopu od  #NKS godišnje, rok otplate #ROK godina, u slučaju kada kupoprodajna cijena vozila iznosi #IZNOS kuna s uključenim PDV-om, a učešće je u iznosu od #IZNOS UČEŠĆA kuna, bez naknade za obradu kredita te anuitetsku otplatu efektivna kamatna stopa (EKS) za kredit u kunama od #IZNOS KREDITA iznosi #EKS. Mjesečni anuitet iznosi 890,01 kuna, a ukupan iznos koji klijent treba platiti #IZNOS FINANCIRANJA + KAMATA kuna.Prikazani rezultati na osnovi podataka koje ste unijeli mogu se primijeniti isključivo u informativne svrhe i ne obvezuju Banku na pružanje bankarske usluge. Računica se prikazuje u skladu s Općim uvjetima poslovanja i Banka zadržava pravo izmijeniti odredbe navedenog dokumenta. Banka donosi odluku o pružanju bankarske usluge u skladu s uvjetima koji su navedeni u Općim uvjetima poslovanja, na osnovi procjene kreditne sposobnosti. Zbog specifičnosti statusa, molimo nerezidentnog klijenta da se o cjelokupnoj ponudi informira tako što će ugovoriti sastanak s bankarom u Centru za nerezidente.</span>
+                                                                        <span v-html="calculationResults.disclaimer"></span>
                                                                         <div class="rci-infohint"></div>
                                                                     </div>
                                                                     <div class="rci-col rci-summary-label-value rci-infohint-parent">
@@ -343,6 +343,7 @@
                     administration_fee: 0,
                     monthly_installment: 0,
                     currency: 'HRK',
+                    disclaimer: null,
                     bundle: []
                 }
             }
