@@ -436,8 +436,8 @@
 
             calculate() {
                 this.loading = true;
-                //let endpoint = 'https://rna.sto2.hr/api/rci-calculator/calculate';
-                let endpoint = 'http://127.0.0.1:8000/api/rci-calculator/calculate';
+                let endpoint = 'https://rna.sto2.hr/api/rci-calculator/calculate';
+                //let endpoint = 'http://127.0.0.1:8000/api/rci-calculator/calculate';
 
                 let data = window.RCI_SIMULATOR_CONFIG;
                 for (let key in this.financing) {
