@@ -187,25 +187,30 @@
                                                                                                 <label class="rci-input-list-child-label"
                                                                                                        :for="'bundle_' + financing.bundle.name">
                                                                                                     <span>{{ financing.bundle.name }}</span>
-                                                                                                    <div class="rci-infohint">
-                                                                                                      <div class="rci-row rci-info-hint-content mCS_destroyed" :for="'bundle_' + financing.bundle.name">
-                                                                                                        <div class="rci-col rci-info-hint rci-info-hint-close-wrapper">
-                                                                                                          <div class="rci-hint-close"></div>
+                                                                                                    <div class="rci-infohint" @mouseenter="setBundleHover(financing.bundle.name)" @mouseleave="removeBundleHover(financing.bundle.name)">
+
+                                                                                                        <div
+                                                                                                            :class="['rci-row', 'rci-info-hint-content', 'mCS_destroyed', isBundleHovered(financing.bundle.name) ? 'rci-info-popup-open rci-info-hint-content--open' : '']"
+                                                                                                            :for="'bundle_' + financing.bundle.name"
+                                                                                                            :style="isBundleHovered(financing.bundle.name) ? 'visibility: visible; width: 600px; display: block; opacity: 1' : ''">
+
+                                                                                                            <div class="rci-col rci-info-hint rci-info-hint-close-wrapper">
+                                                                                                                <div class="rci-hint-close"></div>
+                                                                                                            </div>
+                                                                                                            <div class="rci-col rci-info-hint-title">
+                                                                                                                <div class="rci-info-hint-title-content">{{ financing.bundle.name }}</div>
+                                                                                                            </div>
+                                                                                                            <div class="rci-col rci-info-hint-text">
+                                                                                                                <div class="rci-info-hint-text-content">
+                                                                                                                    <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis, nisi non dictum pulvinar, ligula erat venenatis massa, sit amet vestibulum ipsum ipsum id magna.</b>
+                                                                                                                </div>
+                                                                                                            </div>
                                                                                                         </div>
-                                                                                                        <div class="rci-col rci-info-hint-title">
-                                                                                                          <div class="rci-info-hint-title-content">{{ financing.bundle.name }}</div>
+                                                                                                        <div class="rci-info-icon-wrapper">
+                                                                                                            <button id="fin-simulator-container_fin-simulator-container-insurance1-P-RBALLVN-0_info" type="button" class="rci-btn-info rci-info-hint-opened" data-ico-after="" for="fin-simulator-container_fin-simulator-container-insurance1-P-RBALLVN-0"></button>
+                                                                                                            <div class="rci-info-popup-open-triangle"></div>
                                                                                                         </div>
-                                                                                                        <div class="rci-col rci-info-hint-text">
-                                                                                                          <div class="rci-info-hint-text-content">
-                                                                                                            <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis, nisi non dictum pulvinar, ligula erat venenatis massa, sit amet vestibulum ipsum ipsum id magna.</b>
-                                                                                                          </div>
-                                                                                                        </div>
-                                                                                                      </div>
-                                                                                                      <div class="rci-info-icon-wrapper">
-                                                                                                        <button id="fin-simulator-container_fin-simulator-container-insurance1-P-RBALLVN-0_info" type="button" class="rci-btn-info rci-info-hint-opened" data-ico-after="" for="fin-simulator-container_fin-simulator-container-insurance1-P-RBALLVN-0"></button>
-                                                                                                        <div class="rci-info-popup-open-triangle"></div>
                                                                                                     </div>
-                                                                                                  </div>
                                                                                                 </label>
                                                                                             </div>
                                                                                             <div class="rci-col rci-amount-col">
@@ -330,7 +335,8 @@
                 showSlider: false,
                 firstApiCall: true,
                 activeFinancingId: null,
-                calculations: []
+                calculations: [],
+                bundleHovers: []
             }
         },
 
@@ -400,7 +406,7 @@
                     { label: 'Trajanje otplate', value: this.financing.duration + ' mjeseci' },
                     { label: 'Nominalna kamatna stopa', value: formatNumber(this.financing.nominal_interest_rate, 2) + '%' },
                     { label: 'Efektivna kamatna stopa', value: formatNumber(this.financing.effective_interest_rate, 2) + '%' },
-                    { label: 'Trošak obrade', value: formatNumber(this.financing.administration_fee, 2) + '%' },
+                    { label: 'Trošak obrade', value: formatNumber(this.financing.administration_fee, 2) + ' ' + this.financing.currency },
                     { label: 'Mjesečna rata', value: formatNumber(this.financing.monthly_installment, 2) + ' ' + this.financing.currency },
                 ];
             }
@@ -467,6 +473,24 @@
                         document.querySelector('.price-calculation-info-button').innerText = 'VEČ OD';
                         document.querySelector('.price-calculation-price-month-installment').innerText = formatNumber(firstCalculation.monthly_installment, 2) + ' ' + firstCalculation.currency + '/mj*';
                     })
+            },
+
+            isBundleHovered(bundle) {
+                return this.bundleHovers.indexOf(bundle) !== -1;
+            },
+
+            setBundleHover(bundle) {
+                let index = this.bundleHovers.indexOf(bundle);
+                if (index === -1) {
+                    this.bundleHovers.push(bundle);
+                }
+            },
+
+            removeBundleHover(bundle) {
+                let index = this.bundleHovers.indexOf(bundle);
+                if (index !== -1) {
+                    this.bundleHovers.splice(index, 1);
+                }
             }
         }
     }
