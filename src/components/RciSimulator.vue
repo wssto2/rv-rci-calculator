@@ -185,7 +185,8 @@
                                                                                                         v-model="financing.bundle_selected"
                                                                                                         @change="calculate">
                                                                                                 <label class="rci-input-list-child-label"
-                                                                                                       :for="'bundle_' + financing.bundle.name">
+                                                                                                       :for="'bundle_' + financing.bundle.name"
+                                                                                                       style="width: auto;">
                                                                                                     <span>{{ financing.bundle.name }}</span>
                                                                                                     <div class="rci-infohint" @mouseenter="setBundleHover(financing.bundle.name)" @mouseleave="removeBundleHover(financing.bundle.name)">
 
