@@ -443,8 +443,8 @@
 
             calculate() {
                 this.loading = true;
-                let endpoint = 'https://rna.sto2.hr/api/rci-calculator/calculate';
-                //let endpoint = 'http://127.0.0.1:8000/api/rci-calculator/calculate';
+                //let endpoint = 'https://rna.sto2.hr/api/rci-calculator/calculate';
+                let endpoint = 'http://127.0.0.1:8000/api/rci-calculator/calculate';
 
                 let data = window.RCI_SIMULATOR_CONFIG;
                 for (let key in this.financing) {
@@ -472,7 +472,13 @@
 
                         document.querySelector('.rci-calculator-price-wrapper').style.display = 'block';
                         document.querySelector('.price-calculation-info-button').innerText = 'VEČ OD';
-                        document.querySelector('.price-calculation-price-month-installment').innerText = formatNumber(firstCalculation.monthly_installment, 2) + ' ' + firstCalculation.currency + '/mj*';
+
+                        /**
+                         * Update monthly installment on page only on first call
+                         */
+                        if (data ['first_api_call']) {
+                            document.querySelector('.price-calculation-price-month-installment').innerText = formatNumber(firstCalculation.monthly_installment, 2) + ' ' + firstCalculation.currency + '/mj*';
+                        }
                     })
             },
 
